@@ -1,0 +1,10 @@
+// Need a reset to remove browser's own default settings, use one
+// from a library like google's normalize.css
+
+// This is like the master scss file I think
+// this is how you import from partial scss files leaving off extention and underscore.
+// Settings has to come first so other imports can use its variables
+@import './base/settings';
+@import './base/base';
+
+

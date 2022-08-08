@@ -1,0 +1,61 @@
+const person = {
+    name: 'cob',
+    age: 23,
+    location: {
+        city: 'Charlotte',
+        temp: 99
+    }
+};
+
+// Object destructuring lets us rip a big object into smaller parts to break them into variables
+
+// Clunky version without destructuring looks like:
+console.log(`${person.name} is ${person.age} in ${person.location.city}`);
+
+// using es6 destructuring
+// Like when importing, we can provide the things we want to grab
+// Can also give defaults to avoid 'undefined' as the value
+const {name = 'DefaultName', age} = person; // This CREATEs two variables getting their values from person. 
+// This grabs the temp from person.location, and renames it and assigns it to a variable named temperature
+const { city: pCity, temp: temperature} = person.location; // same deal creating the variables FROM person.location. Destructuring :)
+
+console.log(`${name} is ${age} in ${pCity} and its ${temperature}`);
+
+
+// new testing
+
+const book = {
+    title: 'Ego is the Enemy',
+    author: 'Ryan Holiday',
+    publisher: [
+        { name: 'Penguin' }
+    ]
+};
+
+// Destructuring allows you to create local variables, give defaults, and rename them, it's a handy syntax. 
+const { name: publisherName = 'Self-Publish'} = book.publisher;
+
+console.log(publisherName);
+
+
+
+
+
+
+// Array Destructuring has just slightly different Syntax
+const address = ['1299 S Juniper Street', 'Blacksburg', 'VA', '24060']; // an array of strings with address info
+
+console.log(`You are in ${address[1]}, ${address[2]}.`); // Old way to do it
+
+// Array destructuring lets you pull objects off of an array
+// An ordered list of variable names goes into the []
+// these are matched by position not name
+// Zip is optional cus its at the end, to skip one just add a comma
+// Can still set defaults, even if you ask for more item than are in the array its ok if you give them default otherwise
+// their value gets set to undefined.
+const [ , city, state = 'defaultState'] = address; 
+
+console.log(`You are in ${city} ${state}.`); // Destructuring, variable names make it more clear
+
+
+
